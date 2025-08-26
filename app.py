@@ -1,10 +1,10 @@
-# app.py
+# app-2.py
 import streamlit as st
 import pandas as pd
 import json
 from datetime import time
-from scheduler import StudyScheduler
-from pdf_export import create_pdf
+from schedule_2 import StudyScheduler      # use underscore, not dash
+from pdf_export_2 import create_pdf        # use underscore, not dash
 
 DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
@@ -53,6 +53,8 @@ def main():
         st.subheader("🕒 Available Study Time")
         available_time = {}
         for day in DAYS:
+            st.markdown(f"**{day}**")   # 👈 now the day name shows
+
             if f"{day}_time_slots" not in st.session_state:
                 st.session_state[f"{day}_time_slots"] = [{"start": time(9, 0), "end": time(12, 0)}]
 
@@ -75,6 +77,7 @@ def main():
                 st.rerun()
 
             available_time[day] = st.session_state[f"{day}_time_slots"]
+            st.markdown("---")
 
         # session rules
         st.subheader("🧠 Session Rules")
