@@ -1,10 +1,9 @@
-# app-2.py
 import streamlit as st
 import pandas as pd
 import json
 from datetime import time
-from schedule_2 import StudyScheduler      # use underscore, not dash
-from pdf_export_2 import create_pdf        # use underscore, not dash
+from scheduler import StudyScheduler      # original file names
+from pdf_export import create_pdf
 
 DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
